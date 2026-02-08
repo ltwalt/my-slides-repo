@@ -1,6 +1,6 @@
 # 📊 Markdown-to-PowerPoint: The Docs-as-Code Presentation Workflow
 
-![Build Status](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/actions/workflows/build_slides.yml/badge.svg)
+![Build Status](https://github.com/ltwalt/my-slides-repo/actions/workflows/build_slides.yml/badge.svg)
 
 This repository hosts a **Docs-as-Code** workflow for creating PowerPoint presentations. Instead of dragging and dropping boxes in PowerPoint, we write content in **Markdown**, define diagrams with **Mermaid**, and compile everything into a native `.pptx` file using **Pandoc**.
 
