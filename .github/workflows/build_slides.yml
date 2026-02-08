@@ -1,0 +1,36 @@
+name: Build Slides
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Install Pandoc
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      # Install Puppeteer (required for Mermaid) and the Filter
+      - name: Install Mermaid Filter
+        run: |
+          npm install -g pandoc-mermaid-filter
+          sudo apt-get install -y chromium-browser
+
+      # Compile the Presentation
+      - name: Build PPTX
+        run: |
+          mkdir dist
+          pandoc src/presentation.md \
+            --filter pandoc-mermaid-filter \
+            --reference-doc templates/reference.pptx \
+            -o dist/presentation.pptx
+
+      # Save the PPTX as an Artifact
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Presentation-Slides
+          path: dist/presentation.pptx
