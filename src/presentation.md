@@ -11,8 +11,5 @@ date: 2026-02-08
 Here is how our data flows:
 
 ```mermaid
-graph LR
-    A[User Input] --> B{Valid?}
-    B -- Yes --> C[Database]
-    B -- No --> D[Error Log]
-    C --> E[Dashboard]
+graph TD
+    A[Start] --> B[End]
